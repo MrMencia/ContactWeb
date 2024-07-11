@@ -1,23 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-ContactWeb-1d2a828e-448e-498a-be66-8e9b735be23c</UserSecretsId>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.3" />
+    <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3" />
   </ItemGroup>
 
+  
+  
   <ItemGroup>
     <ProjectReference Include="..\ContactWebModels\ContactWebModels.csproj" />
-    <ProjectReference Include="..\MyContactManagerData\MyContactManagerData.csproj" />
-  </ItemGroup>
-
+  </ItemGroup>  
+  
+  
+  
+  
+  
 </Project>

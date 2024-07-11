@@ -2,7 +2,7 @@
 
 namespace ContactWebModels
 {
-    internal class State
+    public class State
     {
         //State Model Class
 

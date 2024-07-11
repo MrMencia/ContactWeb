@@ -2,7 +2,7 @@
 
 namespace ContactWebModels
 {
-    internal class Contact
+    public class Contact
     {
 
         // Contact Model Class
