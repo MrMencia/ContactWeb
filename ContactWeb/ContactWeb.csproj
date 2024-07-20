@@ -20,8 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ContactWebModels\ContactWebModels.csproj" />
-    <ProjectReference Include="..\MyContactManagerData\MyContactManagerData.csproj" />
+    <ProjectReference Include="..\MyContactManagerServices\MyContactManagerServices.csproj" />
   </ItemGroup>
 
 </Project>
