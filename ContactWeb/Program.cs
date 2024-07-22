@@ -2,6 +2,8 @@ using ContactWeb.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyContactManagerData;
+using MyContactManagerRepositories;
+using MyContactManagerServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,15 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+//The below code fixes this error -> InvalidOperationException: Unable to resolve service for type 'MyContactManagerServices.IStatesService' while attempting to
+//activate 'ContactWeb.Controllers.StatesController'.
+
+
+builder.Services.AddScoped<IStatesRepository, StatesRepository>();
+builder.Services.AddScoped<IStatesService, StatesService>();
+builder.Services.AddScoped<IContactsRepository, ContactsRepository>();
+builder.Services.AddScoped<IContactsService, ContactsService>();
 
 var app = builder.Build();
 
