@@ -9,7 +9,7 @@ namespace ContactWeb.Controllers
 {
     public class StatesController : Controller
     {
-        //private readonly MyContactManagerDBContext _context;
+
         private readonly IStatesService _statesService;
         private IMemoryCache _cache;
 
@@ -53,8 +53,7 @@ namespace ContactWeb.Controllers
                 return NotFound();
             }
 
-            //var state = await _context.States
-            //  .FirstOrDefaultAsync(m => m.Id == id);
+
 
             var state = await _statesService.GetAsync((int)id);
 
@@ -126,8 +125,7 @@ namespace ContactWeb.Controllers
                 try
                 {
                     await _statesService.AddOrUpdateAsync(state);
-                    //_context.Update(state);
-                    //await _context.SaveChangesAsync();
+
                     _cache.Remove(ContactCacheConstants.ALL_STATES);
                 }
                 catch (DbUpdateConcurrencyException)
@@ -155,8 +153,7 @@ namespace ContactWeb.Controllers
             }
 
             var state = await _statesService.GetAsync((int)id);
-            //var state = await _context.States
-            //    .FirstOrDefaultAsync(m => m.Id == id);
+
             if (state == null)
             {
                 return NotFound();
@@ -172,26 +169,17 @@ namespace ContactWeb.Controllers
         {
 
             await _statesService.DeleteAsync(id);
-            //var state = await _context.States.FindAsync(id);
-            //_context.States.Remove(state);
-            //await _context.SaveChangesAsync();
+
             _cache.Remove(ContactCacheConstants.ALL_STATES);
             return RedirectToAction(nameof(Index));
 
-            //if (state != null)
-            //{
-            //    _context.States.Remove(state);
-            //}
 
-            //await _context.SaveChangesAsync();
-            //_cache.Remove(ContactCacheConstants.ALL_STATES);
-            //return RedirectToAction(nameof(Index));
         }
 
         private bool StateExists(int id)
         {
             return Task.Run(() => _statesService.ExistsAsync(id)).Result;
-            //return _context.States.Any(e => e.Id == id);
+
         }
     }
 }
